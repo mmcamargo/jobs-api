@@ -4,7 +4,9 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "ts-node-dev --respawn --transpile-only ./src/index.ts",
-		"build": "rimraf dist && tsc"
+		"build": "rimraf dist && tsc",
+		"ts.check": "tsc --project tsconfig.json",
+		"add-build": "git add dist"
 	},
 	"license": "ISC",
 	"devDependencies": {
@@ -26,5 +28,10 @@
 		"reflect-metadata": "^0.1.13",
 		"typeorm": "^0.3.12",
 		"uuid": "^9.0.0"
-	}
+	},
+	"pre-commit": [
+		"ts.check",
+		"build",
+		"add-build"
+	]
 }
