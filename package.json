@@ -6,7 +6,8 @@
 		"dev": "ts-node-dev --respawn --transpile-only ./src/index.ts",
 		"build": "rimraf dist && tsc",
 		"ts.check": "tsc --project tsconfig.json",
-		"add-build": "git add dist"
+		"add-build": "git add dist",
+		"migration:create": "typeorm migration:create src/app/shared/database/migrations/CreateTable"
 	},
 	"license": "ISC",
 	"devDependencies": {
