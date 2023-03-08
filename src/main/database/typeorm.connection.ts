@@ -1,14 +1,14 @@
 import 'dotenv/config';
 import 'reflect-metadata';
+import { dataSource } from '../configs/database.config';
 import { DataSource } from 'typeorm';
-import config from '../configs/database.config';
 
 export class DatabaseConnection {
 	private static _connection: DataSource;
 
 	public static async connect() {
 		if (!this._connection) {
-			this._connection = await config.initialize();
+			this._connection = await dataSource.initialize();
 			console.log('DATABASE_CONNECTION_SUCCESSFUL');
 		}
 	}

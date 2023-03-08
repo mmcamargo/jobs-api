@@ -1,4 +1,4 @@
-import { UserType } from './user-type.model';
+import { UserType } from '../shared/enums';
 import { v4 } from 'uuid';
 
 export class User {

@@ -1,4 +1,4 @@
-import { makeRoutes } from './routes.config';
+import { makeRoutes } from '.';
 import express from 'express';
 import cors from 'cors';
 

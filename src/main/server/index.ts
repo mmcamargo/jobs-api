@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { createServer } from '../configs/server.config';
+import { createServer } from '../configs';
 
 export const runServer = () => {
 	const app = createServer();

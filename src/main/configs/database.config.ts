@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { DataSource } from 'typeorm';
 
-export default new DataSource({
+export const dataSource = new DataSource({
 	type: 'postgres',
 	url: process.env.DB_URL,
 	synchronize: false,
