@@ -1,5 +1,5 @@
-import { BaseEntity } from './base.entity';
-import { Entity, Column } from 'typeorm';
+import { BaseEntity, RecruiterEntity } from '.';
+import { Entity, Column, ManyToOne, JoinColumn } from 'typeorm';
 
 @Entity({ name: 'jobs' })
 export class JobEntity extends BaseEntity {
@@ -20,4 +20,8 @@ export class JobEntity extends BaseEntity {
 
 	@Column({ name: 'max_applicants' })
 	maxApplicants!: number;
+
+	@ManyToOne(() => RecruiterEntity, (recruiter) => recruiter.jobs)
+	@JoinColumn({ name: 'recruiter_uid', referencedColumnName: 'uid' })
+	recruiter!: RecruiterEntity;
 }

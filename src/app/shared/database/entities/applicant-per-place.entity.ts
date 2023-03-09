@@ -1,5 +1,5 @@
 import { BaseEntity } from './base.entity';
-import { Entity, Column } from 'typeorm';
+import { Entity, Column, ManyToOne } from 'typeorm';
 
 @Entity({ name: 'applicants_per_place' })
 export class ApplicantPerPlaceEntity extends BaseEntity {
