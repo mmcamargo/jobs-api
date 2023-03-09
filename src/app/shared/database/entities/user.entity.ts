@@ -12,9 +12,9 @@ export class UserEntity extends BaseEntity {
 	@Column()
 	name!: string;
 
-	@Column('company_name')
+	@Column({ name: 'company_name' })
 	companyName!: string;
 
-	@Column('user_type')
+	@Column({ name: 'user_type' })
 	userType!: string;
 }

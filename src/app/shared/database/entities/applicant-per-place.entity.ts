@@ -3,10 +3,10 @@ import { Entity, Column } from 'typeorm';
 
 @Entity({ name: 'applicants_per_place' })
 export class ApplicantPerPlaceEntity extends BaseEntity {
-	@Column('applicant_uid')
+	@Column({ name: 'applicant_uid' })
 	applicantUid!: string;
 
-	@Column('job_uid')
+	@Column({ name: 'job_uid' })
 	jobUid!: string;
 
 	@Column()
