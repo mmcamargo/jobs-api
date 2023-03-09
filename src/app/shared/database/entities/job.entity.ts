@@ -1,6 +1,5 @@
 import { BaseEntity } from './base.entity';
-import { UserEntity } from './user.entity';
-import { Entity, Column, ManyToOne } from 'typeorm';
+import { Entity, Column } from 'typeorm';
 
 @Entity({ name: 'jobs' })
 export class JobEntity extends BaseEntity {
@@ -21,6 +20,4 @@ export class JobEntity extends BaseEntity {
 
 	@Column('max_applicants')
 	maxApplicants!: number;
-
-	// @ManyToOne(() => UserEntity)
 }

@@ -1,5 +1,4 @@
 import { BaseEntity } from './base.entity';
-import { UserType } from './../../../models/user-type.model';
 import { Entity, Column } from 'typeorm';
 
 @Entity({ name: 'users' })
@@ -17,5 +16,5 @@ export class UserEntity extends BaseEntity {
 	companyName!: string;
 
 	@Column('user_type')
-	userType!: UserType;
+	userType!: string;
 }
