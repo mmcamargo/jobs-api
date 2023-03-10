@@ -6,20 +6,20 @@ export class JobEntity extends BaseEntity {
 	@Column({ name: 'recruiter_uid' })
 	recruiterUid!: string;
 
-	@Column()
-	description!: string;
-
 	@Column({ name: 'company_name' })
 	companyName!: string;
 
 	@Column()
-	active!: boolean;
+	description!: string;
 
-	@Column({ name: 'expiration_date' })
-	expirationDate!: Date;
+	@Column()
+	active!: boolean;
 
 	@Column({ name: 'max_applicants' })
 	maxApplicants!: number;
+
+	@Column({ name: 'expiration_date' })
+	expirationDate!: Date;
 
 	@ManyToOne(() => RecruiterEntity, (recruiter) => recruiter.jobs)
 	@JoinColumn({ name: 'recruiter_uid', referencedColumnName: 'uid' })

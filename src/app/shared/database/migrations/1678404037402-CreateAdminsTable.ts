@@ -19,6 +19,7 @@ export class CreateAdminsTable1678404037402 implements MigrationInterface {
 						type: 'timestamp',
 						isNullable: false,
 					},
+					{ name: 'name', type: 'varchar', isNullable: false },
 					{ name: 'updated_at', type: 'timestamp', isNullable: true },
 				],
 			})

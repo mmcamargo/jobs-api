@@ -3,46 +3,46 @@ import { v4 } from 'uuid';
 export class Job {
 	uid: string;
 	recruiterUid: string;
-	description: string;
 	companyName: string;
+	description: string;
 	active: boolean;
-	expirationDate: Date;
 	maxApplicants: number;
+	expirationDate: Date;
 
 	constructor(
 		recruiterUid: string,
-		description: string,
 		companyName: string,
+		description: string,
 		active: boolean,
-		expirationDate: Date,
 		maxApplicants: number,
+		expirationDate: Date,
 		uid?: string
 	) {
 		this.uid = uid ?? v4();
 		this.recruiterUid = recruiterUid;
-		this.description = description;
 		this.companyName = companyName;
+		this.description = description;
 		this.active = active;
-		this.expirationDate = expirationDate;
 		this.maxApplicants = maxApplicants;
+		this.expirationDate = expirationDate;
 	}
 
 	static create(
 		recruiterUid: string,
-		description: string,
 		companyName: string,
+		description: string,
 		active: boolean,
-		expirationDate: Date,
 		maxApplicants: number,
+		expirationDate: Date,
 		uid?: string
 	): Job {
 		return new Job(
 			recruiterUid,
-			description,
 			companyName,
+			description,
 			active,
-			expirationDate,
 			maxApplicants,
+			expirationDate,
 			uid
 		);
 	}
@@ -51,11 +51,11 @@ export class Job {
 		return {
 			uid: this.uid,
 			recruiterUid: this.recruiterUid,
-			description: this.description,
 			companyName: this.companyName,
+			description: this.description,
 			active: this.active,
-			expirationDate: this.expirationDate,
 			maxApplicants: this.maxApplicants,
+			expirationDate: this.expirationDate,
 		};
 	}
 }

@@ -12,21 +12,21 @@ export class CreateJobsTable1678406445266 implements MigrationInterface {
 						type: 'uuid',
 						isNullable: false,
 					},
-					{ name: 'description', type: 'varchar', isNullable: false },
 					{
 						name: 'company_name',
 						type: 'varchar',
 						isNullable: false,
 					},
+					{ name: 'description', type: 'varchar', isNullable: false },
 					{ name: 'active', type: 'boolean', isNullable: false },
-					{
-						name: 'expiration_date',
-						type: 'timestamp',
-						isNullable: false,
-					},
 					{
 						name: 'max_applicants',
 						type: 'integer',
+						isNullable: false,
+					},
+					{
+						name: 'expiration_date',
+						type: 'timestamp',
 						isNullable: false,
 					},
 					{
