@@ -38,9 +38,9 @@ export class CreateJobsTable1678406445266 implements MigrationInterface {
 				],
 				foreignKeys: [
 					{
-						name: 'fk_job_user',
+						name: 'fk_job_recruiter',
 						columnNames: ['recruiter_uid'],
-						referencedTableName: 'users',
+						referencedTableName: 'recruiters',
 						referencedColumnNames: ['uid'],
 					},
 				],
@@ -49,6 +49,6 @@ export class CreateJobsTable1678406445266 implements MigrationInterface {
 	}
 
 	public async down(queryRunner: QueryRunner): Promise<void> {
-		await queryRunner.dropTable('users', true, true, true);
+		await queryRunner.dropTable('jobs', true, true, true);
 	}
 }

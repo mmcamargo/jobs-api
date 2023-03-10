@@ -25,9 +25,9 @@ export class CreateApplicantsPerPlaceTable1678406520894
 				],
 				foreignKeys: [
 					{
-						name: 'fk_applicants_per_place_users',
+						name: 'fk_applicants_per_place_applicants',
 						columnNames: ['applicant_uid'],
-						referencedTableName: 'users',
+						referencedTableName: 'applicants',
 						referencedColumnNames: ['uid'],
 					},
 					{
