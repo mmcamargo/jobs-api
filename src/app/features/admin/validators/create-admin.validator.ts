@@ -1,5 +1,5 @@
+import { HttpHelper } from './../../../shared/utils/http.helper';
 import { Request, Response, NextFunction } from 'express';
-import { IDefaultResponse } from '../../../shared/interfaces';
 
 export const createAdminValidator = (
 	req: Request,
@@ -9,24 +9,15 @@ export const createAdminValidator = (
 	const { username, password, name } = req.body;
 
 	if (!username) {
-		return res.status(400).send({
-			success: false,
-			message: 'USERNAME_NOT_FOUND',
-		} as IDefaultResponse);
+		return HttpHelper.badRequest(res, 'MISSING_USERNAME');
 	}
 
 	if (!password) {
-		return res.status(400).send({
-			success: false,
-			message: 'PASSWORD_NOT_FOUND',
-		} as IDefaultResponse);
+		return HttpHelper.badRequest(res, 'MISSING_PASSWORD');
 	}
 
 	if (!name) {
-		return res.status(400).send({
-			success: false,
-			message: 'NAME_NOT_FOUND',
-		} as IDefaultResponse);
+		return HttpHelper.badRequest(res, 'MISSING_NAME');
 	}
 
 	next();
