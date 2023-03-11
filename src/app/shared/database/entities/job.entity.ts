@@ -1,4 +1,4 @@
-import { BaseEntity, RecruiterEntity } from '.';
+import { BaseEntity, UserEntity } from '.';
 import { Entity, Column, ManyToOne, JoinColumn } from 'typeorm';
 
 @Entity({ name: 'jobs' })
@@ -21,7 +21,7 @@ export class JobEntity extends BaseEntity {
 	@Column({ name: 'expiration_date' })
 	expirationDate!: Date;
 
-	@ManyToOne(() => RecruiterEntity, (recruiter) => recruiter.jobs)
+	@ManyToOne(() => UserEntity, (recruiter) => recruiter.jobs)
 	@JoinColumn({ name: 'recruiter_uid', referencedColumnName: 'uid' })
-	recruiter!: RecruiterEntity;
+	recruiter!: UserEntity;
 }

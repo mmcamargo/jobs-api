@@ -1,11 +1,22 @@
-import { BaseEntity } from './base.entity';
-import { Entity, Column } from 'typeorm';
+import { BaseEntity, JobEntity } from '.';
+import { TUser } from '../../utils/types';
+import { Entity, Column, OneToMany, JoinColumn } from 'typeorm';
 
-@Entity()
-export abstract class UserEntity extends BaseEntity {
+@Entity('users')
+export class UserEntity extends BaseEntity {
+	@Column()
+	type!: TUser;
+
 	@Column()
 	username!: string;
 
 	@Column()
 	password!: string;
+
+	@Column()
+	name!: string;
+
+	@OneToMany(() => JobEntity, (job) => job.recruiter)
+	@JoinColumn({ name: 'uid', referencedColumnName: 'recruiter_uid' })
+	jobs?: JobEntity[];
 }

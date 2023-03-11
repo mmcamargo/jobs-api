@@ -27,7 +27,7 @@ export class CreateApplicantsPerPlaceTable1678406520894
 					{
 						name: 'fk_applicants_per_place_applicants',
 						columnNames: ['applicant_uid'],
-						referencedTableName: 'applicants',
+						referencedTableName: 'users',
 						referencedColumnNames: ['uid'],
 					},
 					{

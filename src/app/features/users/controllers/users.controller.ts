@@ -1,16 +1,17 @@
-import { AdminRepository } from '../repositories';
-import { CreateAdminUseCase } from '../usecases';
+import { UsersRepository } from '../repositories';
+import { CreateUserUseCase } from '../usecases';
 import { HttpHelper } from '../../../shared/utils';
 import { Response, Request } from 'express';
 
-export class AdminController {
+export class UsersController {
 	async create(req: Request, res: Response) {
 		try {
-			const { username, password, name } = req.body;
+			const { type, username, password, name } = req.body;
 
-			const useCase = new CreateAdminUseCase(new AdminRepository());
+			const useCase = new CreateUserUseCase(new UsersRepository());
 
 			const response = await useCase.execute({
+				type,
 				username,
 				password,
 				name,
@@ -18,7 +19,7 @@ export class AdminController {
 
 			return HttpHelper.success(
 				res,
-				'ADMIN_SUCCESSFULLY_CREATED',
+				'USER_SUCCESSFULLY_CREATED',
 				response,
 				201
 			);

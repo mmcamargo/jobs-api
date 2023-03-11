@@ -1,12 +1,20 @@
-import { HttpHelper } from './../../../shared/utils/http.helper';
+import { HttpHelper } from './../../../shared/utils';
 import { Request, Response, NextFunction } from 'express';
 
-export const createAdminValidator = (
+export const createUserValidator = (
 	req: Request,
 	res: Response,
 	next: NextFunction
 ) => {
-	const { username, password, name } = req.body;
+	const { type, username, password, name } = req.body;
+
+	if (!type) {
+		return HttpHelper.badRequest(res, 'MISSING_TYPE');
+	}
+
+	if (type !== 'ADMIN' || type !== 'RECRUITER' || type !== 'APPLICANT') {
+		return HttpHelper.badRequest(res, 'INVALID_TYPE');
+	}
 
 	if (!username) {
 		return HttpHelper.badRequest(res, 'MISSING_USERNAME');

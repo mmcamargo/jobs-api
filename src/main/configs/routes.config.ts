@@ -1,6 +1,6 @@
-import { adminRoutes } from '../../app/features/admin/routes';
+import { usersRoutes } from './../../app/features/users/routes';
 import { Express } from 'express';
 
 export const makeRoutes = (app: Express) => {
-	app.use('/admin', adminRoutes);
+	app.use('/user', usersRoutes);
 };

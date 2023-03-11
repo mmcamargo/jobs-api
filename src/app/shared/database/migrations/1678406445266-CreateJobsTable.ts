@@ -40,7 +40,7 @@ export class CreateJobsTable1678406445266 implements MigrationInterface {
 					{
 						name: 'fk_job_recruiter',
 						columnNames: ['recruiter_uid'],
-						referencedTableName: 'recruiters',
+						referencedTableName: 'users',
 						referencedColumnNames: ['uid'],
 					},
 				],
