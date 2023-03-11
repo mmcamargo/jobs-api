@@ -1,11 +1,10 @@
 import { BaseEntity, JobEntity } from '.';
-import { TUser } from '../../utils/types';
 import { Entity, Column, OneToMany, JoinColumn } from 'typeorm';
 
 @Entity('users')
 export class UserEntity extends BaseEntity {
 	@Column()
-	type!: TUser;
+	type!: string;
 
 	@Column()
 	username!: string;

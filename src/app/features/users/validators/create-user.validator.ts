@@ -12,7 +12,7 @@ export const createUserValidator = (
 		return HttpHelper.badRequest(res, 'MISSING_TYPE');
 	}
 
-	if (type !== 'ADMIN' || type !== 'RECRUITER' || type !== 'APPLICANT') {
+	if (type !== 'ADMIN' && type !== 'RECRUITER' && type !== 'APPLICANT') {
 		return HttpHelper.badRequest(res, 'INVALID_TYPE');
 	}
 
