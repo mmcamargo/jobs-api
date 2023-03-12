@@ -6,7 +6,7 @@ export const createUserValidator = (
 	res: Response,
 	next: NextFunction
 ) => {
-	const { type, username, password, name } = req.body;
+	const { type, username, password, name, role } = req.body;
 
 	if (!type) {
 		return HttpHelper.badRequest(res, 'MISSING_TYPE');
@@ -14,6 +14,10 @@ export const createUserValidator = (
 
 	if (type !== 'ADMIN' && type !== 'RECRUITER' && type !== 'APPLICANT') {
 		return HttpHelper.badRequest(res, 'INVALID_TYPE');
+	}
+
+	if (type === 'RECRUITER' && role !== 'ADMIN') {
+		return HttpHelper.badRequest(res, 'INVALID_ROLE');
 	}
 
 	if (!username) {

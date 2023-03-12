@@ -15,6 +15,9 @@ export class UserEntity extends BaseEntity {
 	@Column()
 	name!: string;
 
+	@Column({ name: 'company_name' })
+	companyName!: string;
+
 	@OneToMany(() => JobEntity, (job) => job.recruiter)
 	@JoinColumn({ name: 'uid', referencedColumnName: 'recruiter_uid' })
 	jobs?: JobEntity[];

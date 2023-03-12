@@ -6,17 +6,32 @@ export class UsersRepository {
 	private _repository =
 		DatabaseConnection.connection.getRepository(UserEntity);
 
-	private toModel({ uid, type, username, password, name }: UserEntity): User {
-		return User.create(type, username, password, name, uid);
+	private toModel({
+		uid,
+		type,
+		username,
+		password,
+		name,
+		companyName,
+	}: UserEntity): User {
+		return User.create(type, username, password, name, companyName, uid);
 	}
 
-	async create({ uid, type, username, password, name }: User): Promise<User> {
+	async create({
+		uid,
+		type,
+		username,
+		password,
+		name,
+		companyName,
+	}: User): Promise<User> {
 		const user = this._repository.create({
 			uid,
 			type,
 			username,
 			password,
 			name,
+			companyName,
 		});
 
 		const response = await this._repository.save(user);

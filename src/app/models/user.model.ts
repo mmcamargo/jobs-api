@@ -1,18 +1,19 @@
-import { TUser } from '../shared/utils/types';
 import { v4 } from 'uuid';
 
 export class User {
 	uid: string;
-	type: TUser;
+	type: string;
 	username: string;
 	password: string;
 	name: string;
+	companyName?: string;
 
 	constructor(
-		type: TUser,
+		type: string,
 		username: string,
 		password: string,
 		name: string,
+		companyName?: string,
 		uid?: string
 	) {
 		this.uid = uid ?? v4();
@@ -20,16 +21,18 @@ export class User {
 		this.username = username;
 		this.password = password;
 		this.name = name;
+		this.companyName = companyName;
 	}
 
 	static create(
-		type: TUser,
+		type: string,
 		username: string,
 		password: string,
 		name: string,
+		companyName?: string,
 		uid?: string
 	) {
-		return new User(type, username, password, name, uid);
+		return new User(type, username, password, name, companyName, uid);
 	}
 
 	toJson() {
@@ -39,6 +42,7 @@ export class User {
 			username: this.username,
 			password: this.password,
 			name: this.name,
+			companyName: this.companyName ?? null,
 		};
 	}
 }

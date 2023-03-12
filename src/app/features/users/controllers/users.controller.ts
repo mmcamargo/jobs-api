@@ -6,7 +6,7 @@ import { Response, Request } from 'express';
 export class UsersController {
 	async create(req: Request, res: Response) {
 		try {
-			const { type, username, password, name } = req.body;
+			const { type, username, password, name, companyName } = req.body;
 
 			const useCase = new CreateUserUseCase(new UsersRepository());
 
@@ -15,6 +15,7 @@ export class UsersController {
 				username,
 				password,
 				name,
+				companyName,
 			});
 
 			return HttpHelper.success(
