@@ -7,7 +7,6 @@ export const getUsersByTypeValidator = (
 	next: NextFunction
 ) => {
 	const { type } = req.params;
-	console.log(type);
 
 	if (type !== 'ADMIN' && type !== 'RECRUITER' && type !== 'APPLICANT') {
 		return HttpHelper.badRequest(res, 'INVALID_TYPE');
