@@ -11,7 +11,7 @@ interface ICreateUserDTO {
 }
 
 export class CreateUserUseCase {
-	constructor(private repository: UsersRepository) {}
+	constructor(private _repository: UsersRepository) {}
 
 	async execute({
 		type,
@@ -28,6 +28,6 @@ export class CreateUserUseCase {
 			companyName
 		);
 
-		return await this.repository.create(user);
+		return await this._repository.create(user);
 	}
 }

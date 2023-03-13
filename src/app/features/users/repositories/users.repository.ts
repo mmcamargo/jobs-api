@@ -38,4 +38,16 @@ export class UsersRepository {
 
 		return this.toModel(response);
 	}
+
+	async getUsers() {
+		const response = await this._repository.find();
+
+		return response;
+	}
+
+	async getUsersByType(type: string) {
+		const response = await this._repository.findBy({ type });
+
+		return response;
+	}
 }
